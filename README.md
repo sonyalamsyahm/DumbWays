@@ -41,4 +41,4 @@
 * bisa dicek dengan cpp.sh
 * sama halnya dengan no 4, silahkan klik angka 1-9, nanti muncul jumlah rows tergantung input. karena pada cpp.sh tidak menampilkan perintah printf diawal
 
-#Saya hanya bisa mengisi 5 soal, Terimakasih banyak
+# Saya hanya bisa mengisi 5 soal, Terimakasih banyak
