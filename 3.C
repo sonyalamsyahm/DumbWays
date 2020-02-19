@@ -53,5 +53,5 @@ int drawImage(int x) {
 }
 
 int main() {
-	drawImage(5);
+	drawImage(7);
 }
