@@ -1,57 +1,51 @@
 #include <stdio.h>
 
-int drawImage(int x) {
-	printf("Masukkan angka ganjil: \n");
-	scanf("%d",&x);
-	int cek;
-	cek = x%2;
-	if (cek == 0) {
-		printf("Bilangan Genap \n");
-		return 0;
-	}
-	
-	int i,j,k,l,m,n,o;
-	k = x / 2;
-	l = x / 2;
-	m = x / 2;
-	n = 1;
-	o = x-2;
-	
-	for (i=0; i<x; i++) {
-		if (i <= m) {
-		
-		for(j=0; j<x; j++) {
-			
-			if (j<k || j>l) {
-				printf("=");
-			}
-			else {
-			printf("@");
-			}
-			}	
-			k -= 1;
-			l += 1;
-			printf("\n");
-		}
-		if (i > m) {
+int getSize() {
+    int size;
+    
+    printf("Masukkan angka ganjil: ");
+    scanf("%d", &size);
 
-			for (j=0; j<x; j++) {
-				if (j<n || j>o)
-				{
-					printf("=");
-				}
-				else {
-					printf("@");
-				}
-			}
-				n += 1;
-				o -= 1;
-				printf("\n");
-		}
-		}
+    if (size % 2 == 0) {
+        printf("Angka merupakan bilangan genap, silahkan diulangi\n");
+        return getSize();
+    }
 
+    return size;
+}
+
+
+void putCharNTimes(char ch, int times) {
+    for (int i=1; i <= times; i++) {
+        putchar(ch);
+    }
+}
+
+int drawImages(int size) {
+    int max = size;
+    int median = (max/2) + 1;
+    char wrapper = '=';
+    char wrapped = '@';
+
+    for (int i=1; i <= (max * 2); i += 2) {
+        int wrapperTimes;
+
+        if (i <= max) {
+            wrapperTimes = (max - i) / 2;            
+        } else {
+            wrapperTimes = (i - max) / 2;
+        }
+
+        putCharNTimes(wrapper, wrapperTimes);
+        putCharNTimes(wrapped, max - (wrapperTimes * 2));
+        putCharNTimes(wrapper, wrapperTimes);
+        printf("\n");
+    }
+    return 0;
 }
 
 int main() {
-	drawImage(7);
+    int size = getSize();
+    drawImages(size);
+    return 0;
 }
